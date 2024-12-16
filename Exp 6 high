@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+
+}
+
+// Function to display the matrix
+void display_matrix(int matrix[10][10], int row, int col) {
+    int i, j;
+    printf("Matrix:\n");
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Function to transpose the matrix
+void transpose_matrix(int matrix[10][10], int transpose[10][10], int row, int col) {
+    int i, j;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+}
+
+// Function to display the transpose matrix
+void display_transpose_matrix(int transpose[10][10], int row, int col) {
+    int i, j;
+    printf("Transpose of the matrix:\n");
+    for (i = 0; i < col; i++) {
+        for (j = 0; j < row; j++) {
+            printf("%d ", transpose[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int matrix[10][10], transpose[10][10];
+    int row, col;
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &row);
+    printf("Enter the number of columns: ");
+    scanf("%d", &col);
+
+    read_matrix(matrix, row, col);
+    display_matrix(matrix, row, col);
+
+    transpose_matrix(matrix, transpose, row, col);
+    display_transpose_matrix(transpose, row, col);
+
+    return 0;
+}
